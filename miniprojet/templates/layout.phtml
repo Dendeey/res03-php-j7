@@ -1,0 +1,57 @@
+<?php
+
+// REQUIRES
+
+require "partials/_header.phtml";
+require "partials/_footer.phtml";
+
+if(isset($template))
+{
+    return checkRoute($_GET["route"]);
+}
+else
+{
+    return checkRoute("");
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        
+        <!-- HEADER -->
+        
+        <?php require "partials/_header.phtml"; ?>
+        
+        <!-- MAIN -->
+        
+        <?php   
+                
+            if($template === "homepage")
+            {
+                require "../pages/homepage.php";
+            }
+            if($template === "login")
+            {
+                require "../pages/login.php";
+            }
+            if($template === "register")
+            {
+                require "../pages/register.php";
+            }
+            if($template === "account")
+            {
+                require "../pages/account.php";
+            }
+                
+        ?>
+        
+        <!-- FOOTER -->
+        
+        <?php require "partials/_footer.phtml"; ?>
+    </body>
+</html>
