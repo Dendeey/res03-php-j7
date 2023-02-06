@@ -1,21 +1,14 @@
 <?php
 
+session_start();
+
+
 // REQUIRES
 
 require "logic/router.php";
 require "logic/database.php";
 
 
-// CHECKROUTE
-
-if(isset($_GET["route"]))
-{
-    checkRoute($_GET["route"]);
-}
-else
-{
-    checkRoute("");
-}
 
 
 // SAVE USER ON SUBMIT CLICK
@@ -42,13 +35,40 @@ if((isset($_POST["firstName"]) && !empty($_POST["firstName"])) && (isset($_POST[
     
 }
     
-if (password_verify($_POST["password"], $hashed_password)) 
+if(isset($_POST["loginEmail"]) && !empty($_POST["loginEmail"]) && isset($_POST["loginPassword"]) && !empty($_POST["loginPassword"]))
 {
-    echo 'Password is valid!';
+    
+    $loadEmail = loadUser($_POST["loginEmail"]);
+    $userPassword = $_POST["loginPassword"];
+    
+    
+    if(password_verify($userPassword, $loadEmail->getPassword())) 
+    {
+        $_GET["route"] = "mon-compte";
+        $_SESSION["isConnected"] = true;
+        $_SESSION["userId"] = $loadEmail->getId();
+        var_dump($_SESSION);
+        echo 'Welcome !';
+    }
+    else 
+    {
+        echo 'Invalid password.';
+    }
+        
 }
-else 
+    
+    
+
+// CHECKROUTE
+
+if(isset($_GET["route"]))
 {
-    echo 'Invalid password.';
+    checkRoute($_GET["route"]);
 }
+else
+{
+    checkRoute("");
+}
+
 
 ?>
