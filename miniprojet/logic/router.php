@@ -3,15 +3,15 @@
 function checkRoute(string $route) : void 
 {
     
-    if(isset($route) === "connexion")
+    if($route === "connexion")
     {
         require "pages/login.php";
     }
-    if(isset($route) === "creer-un-compte")
+    if($route === "creer-un-compte")
     {
         require "pages/register.php";
     }
-    if(isset($route) === "mon-compte")
+    if($route === "mon-compte")
     {
         require "pages/account.php";
     }

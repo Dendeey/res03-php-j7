@@ -2,8 +2,10 @@
 
 // REQUIRE
 
-require "./templates/layout.phtml";
+
 
 $template = "register";
+
+require "templates/layout.phtml";
 
 ?>

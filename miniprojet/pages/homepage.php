@@ -2,8 +2,8 @@
 
 // REQUIRE
 
-require "./templates/layout.phtml";
-
 $template = "homepage";
+
+require "templates/layout.phtml";
 
 ?>
