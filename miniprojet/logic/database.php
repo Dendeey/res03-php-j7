@@ -1,9 +1,5 @@
 <?php 
 
-// REQUIRE
-
-require "../models/User.php";
-
 // BRING BACK USER BY EMAIL
 
 function loadUser(string $email) : User
@@ -60,9 +56,9 @@ function saveUser(User $user) : User
     echo "User saved !";
 }
 
-$user1 = new User("David", "Sim", "david@gmail.com", "abcde");
+/*$user1 = new User("David", "Sim", "david@gmail.com", "abcde");
 var_dump($user1);
-saveUser($user1);
+saveUser($user1);*/
 
 
 

@@ -7,11 +7,11 @@ function checkRoute(string $route) : void
     {
         require "pages/login.php";
     }
-    if($route === "creer-un-compte")
+    else if($route === "creer-un-compte")
     {
         require "pages/register.php";
     }
-    if($route === "mon-compte")
+    else if($route === "mon-compte")
     {
         require "pages/account.php";
     }
