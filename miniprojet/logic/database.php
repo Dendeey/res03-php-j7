@@ -1,5 +1,9 @@
 <?php 
 
+// REQUIRES
+
+require "models/User.php";
+
 // BRING BACK USER BY EMAIL
 
 function loadUser(string $email) : User
@@ -27,8 +31,6 @@ function loadUser(string $email) : User
         
 }
 
-/*$loadUser = loadUser("david@gmail.com");
-var_dump($loadUser);*/
 
 // SAVE A USER
 
@@ -52,14 +54,9 @@ function saveUser(User $user) : User
     
     $query->execute($parameters);
     
-    return $user;
+    return loadUser($user->getEmail());
     echo "User saved !";
 }
-
-/*$user1 = new User("David", "Sim", "david@gmail.com", "abcde");
-var_dump($user1);
-saveUser($user1);*/
-
 
 
 
